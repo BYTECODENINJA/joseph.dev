@@ -142,10 +142,10 @@ export function HeroSection({ onHireMeClick }: HeroSectionProps) {
                     {/* Stats row */}
                     <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
                         {[
-                            { value: '3+', label: 'Years Experience' },
+                            { value: '1', label: 'Year Experience' },
                             { value: '20+', label: 'Projects Built' },
                             { value: '15+', label: 'Technologies' },
-                            { value: '99%', label: 'Client Satisfaction' },
+                            { value: '99%', label: 'Confidence' },
                         ].map((stat) => (
                             <div
                                 key={stat.label}

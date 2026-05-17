@@ -125,10 +125,10 @@ export function AboutSection() {
                                 {/* Floating badge */}
                                 <div className="absolute -bottom-4 -right-4 glassmorphism px-6 py-3 rounded-lg">
                 <span className="font-orbitron text-lg font-bold text-[#ff0033]">
-                  3+
+                 1
                 </span>
                                     <span className="font-rajdhani text-xs text-white/60 ml-2 uppercase tracking-wider">
-                  Years
+                  Year
                 </span>
                                 </div>
                             </div>
@@ -166,9 +166,9 @@ export function AboutSection() {
 
                                 <div className="about-card glassmorphism p-4 rounded-xl hover:border-[#ff0033]/30 transition-all duration-300 group">
                                     <Calendar className="w-6 h-6 text-[#ff0033] mb-2 group-hover:scale-110 transition-transform" />
-                                    <div className="font-rajdhani font-semibold text-white">Experience</div>
-                                    <div className="font-space text-sm text-white/50">Working since</div>
-                                    <div className="font-space text-xs text-[#00f0ff]">2022</div>
+                                    <div className="font-rajdhani font-semibold text-white">Focus</div>
+                                    <div className="font-space text-sm text-white/50">Clean code always</div>
+                                    <div className="font-space text-xs text-[#00f0ff]">Scalability</div>
                                 </div>
 
                                 <div className="about-card glassmorphism p-4 rounded-xl hover:border-[#00f0ff]/30 transition-all duration-300 group">

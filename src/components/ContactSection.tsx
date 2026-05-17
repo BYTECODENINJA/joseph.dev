@@ -6,9 +6,9 @@ import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, ExternalLink } fr
 gsap.registerPlugin(ScrollTrigger);
 
 const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, label: 'GitHub', url: 'https://github.com' },
-    { icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn', url: 'https://linkedin.com' },
-    { icon: <Twitter className="w-5 h-5" />, label: 'Twitter', url: 'https://twitter.com' },
+    { icon: <Github className="w-5 h-5" />, label: 'GitHub', url: 'https://github.com/BYTECODENINJA' },
+    { icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/joseph-mulwa808' },
+    { icon: <Twitter className="w-5 h-5" />, label: 'Twitter', url: 'https://twitter.com/' },
 ];
 
 export function ContactSection() {
