@@ -116,12 +116,12 @@ export function ProjectsSection() {
         <section
             id="projects"
             ref={sectionRef}
-            className="pinned-section relative h-screen flex items-center justify-center overflow-hidden"
+            className="pinned-section relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-            <div className="section-content w-full h-full flex items-center justify-center overflow-y-auto">
+            <div className="section-content w-full min-h-screen flex items-center justify-center">
                 <div className="absolute right-0 top-1/4 w-1/3 h-1/2 bg-gradient-to-l from-[#00f0ff]/5 to-transparent pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Header */}
                     <div className="projects-header text-center mb-16">
           <span className="inline-block font-rajdhani text-sm tracking-[0.3em] uppercase text-[#ff0033] mb-4">
@@ -192,26 +192,22 @@ export function ProjectsSection() {
                                                 : 'opacity-0 translate-y-4'
                                         }`}
                                     >
-                                        {project.liveUrl && (
+                                        {project.liveUrl && project.liveUrl !== '#' && (
                                             <a
                                                 href={project.liveUrl}
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    alert('Live demo coming soon!');
-                                                }}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="flex items-center gap-2 px-4 py-2 bg-[#ff0033] text-white rounded-lg font-rajdhani text-sm font-semibold hover:bg-[#ff1a4d] transition-colors"
                                             >
                                                 <Eye className="w-4 h-4" />
                                                 Live Demo
                                             </a>
                                         )}
-                                        {project.githubUrl && (
+                                        {project.githubUrl && project.githubUrl !== '#' && (
                                             <a
                                                 href={project.githubUrl}
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    alert('GitHub repo coming soon!');
-                                                }}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg font-rajdhani text-sm font-semibold hover:bg-white/20 transition-colors"
                                             >
                                                 <Github className="w-4 h-4" />
@@ -258,11 +254,9 @@ export function ProjectsSection() {
                     {/* View More */}
                     <div className="text-center mt-12">
                         <a
-                            href="#"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                alert('More projects coming soon!');
-                            }}
+                            href="https://github.com/BYTECODENINJA"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-8 py-4 border border-[#00f0ff]/30 text-[#00f0ff] rounded-none font-orbitron text-sm font-bold tracking-widest uppercase hover:bg-[#00f0ff]/10 hover:border-[#00f0ff]/50 transition-all duration-300"
                         >
                             <ExternalLink className="w-4 h-4" />

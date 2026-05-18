@@ -55,12 +55,12 @@ export function ContactSection() {
         <section
             id="contact"
             ref={sectionRef}
-            className="pinned-section relative h-screen flex items-center justify-center overflow-hidden"
+            className="pinned-section relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-            <div className="section-content w-full h-full flex items-center justify-center overflow-y-auto">
+            <div className="section-content w-full min-h-screen flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00f0ff]/3 to-transparent pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Header */}
                     <div className="contact-header text-center mb-16">
           <span className="inline-block font-rajdhani text-sm tracking-[0.3em] uppercase text-[#ff0033] mb-4">
@@ -130,10 +130,6 @@ export function ContactSection() {
                                             href={social.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                alert(`${social.label} profile coming soon!`);
-                                            }}
                                             className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-[#ff0033] hover:border-[#ff0033]/30 hover:bg-[#ff0033]/10 transition-all duration-300"
                                             aria-label={social.label}
                                         >
