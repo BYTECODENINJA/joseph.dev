@@ -135,20 +135,19 @@
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 0;
   }
 
   ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #ff0033;
-    border-radius: 3px;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff1a4d;
+    background: transparent;
   }
 }
 

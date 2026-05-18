@@ -8,9 +8,6 @@ interface ScrollContainerProps {
     children: ReactNode;
 }
 
-const SCROLL_PER_SECTION = () => window.innerHeight * 1.2;
-const SCROLL_SCRUB = 1;
-
 export function ScrollContainer({ children }: ScrollContainerProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -21,72 +18,54 @@ export function ScrollContainer({ children }: ScrollContainerProps) {
             const sections = gsap.utils.toArray<HTMLElement>('.pinned-section');
             if (sections.length === 0) return;
 
+            // Set initial z-index for proper stacking
             sections.forEach((section, index) => {
                 gsap.set(section, {
-                    zIndex: index + 1,
+                    zIndex: sections.length - index,
+                    clearProps: 'transform,opacity'
                 });
-
-                const content = section.querySelector('.section-content');
-                if (content) {
-                    gsap.set(content, { opacity: 1, y: 0, scale: 1, clearProps: 'transform' });
-                }
-
-                if (index > 0) {
-                    gsap.set(section, { yPercent: 100 });
-                }
             });
 
+            // Create smooth section transitions without yPercent
             sections.forEach((section, index) => {
                 if (index >= sections.length - 1) return;
 
                 const nextSection = sections[index + 1];
-                const scrollDistance = SCROLL_PER_SECTION;
+                const sectionHeight = () => section.offsetHeight;
 
+                // Create scroll trigger for each section
                 ScrollTrigger.create({
                     trigger: section,
                     start: 'top top',
-                    end: () => `+=${scrollDistance()}`,
+                    end: () => `+=${sectionHeight()}`,
                     pin: true,
                     pinSpacing: true,
-                    scrub: SCROLL_SCRUB,
-                    anticipatePin: 1,
                     invalidateOnRefresh: true,
-                    onEnter: () => section.classList.add('section-active'),
-                    onLeave: () => section.classList.remove('section-active'),
-                    onEnterBack: () => section.classList.add('section-active'),
-                    onLeaveBack: () => section.classList.remove('section-active'),
-                });
-
-                gsap.to(nextSection, {
-                    yPercent: 0,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top top',
-                        end: () => `+=${scrollDistance()}`,
-                        scrub: SCROLL_SCRUB,
-                        invalidateOnRefresh: true,
+                    onEnter: () => {
+                        section.classList.add('section-active');
+                        nextSection.classList.remove('section-active');
+                    },
+                    onLeaveBack: () => {
+                        section.classList.remove('section-active');
                     },
                 });
+            });
 
+            // Mark the last section as active when reached
+            const lastSection = sections[sections.length - 1];
+            if (lastSection) {
                 ScrollTrigger.create({
-                    trigger: nextSection,
-                    start: 'top bottom',
-                    end: 'top top',
-                    onEnter: () => nextSection.classList.add('section-active'),
-                    onLeaveBack: () => nextSection.classList.remove('section-active'),
+                    trigger: lastSection,
+                    start: 'top center',
+                    onEnter: () => lastSection.classList.add('section-active'),
+                    onLeaveBack: () => lastSection.classList.remove('section-active'),
                 });
-            });
+            }
 
-            const last = sections[sections.length - 1];
-            ScrollTrigger.create({
-                trigger: last,
-                start: 'top 60%',
-                onEnter: () => last.classList.add('section-active'),
-                onLeaveBack: () => last.classList.remove('section-active'),
-            });
-
-            sections[0]?.classList.add('section-active');
+            // Mark first section as active on load
+            if (sections[0]) {
+                sections[0].classList.add('section-active');
+            }
         }, containerRef);
 
         const refresh = () => ScrollTrigger.refresh();

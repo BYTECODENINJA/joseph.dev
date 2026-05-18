@@ -49,9 +49,9 @@ export function HeroSection({ onHireMeClick }: HeroSectionProps) {
         <section
             id="hero"
             ref={sectionRef}
-            className="pinned-section relative h-screen flex items-center justify-center overflow-hidden"
+            className="pinned-section relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-            <div className="section-content w-full h-full flex items-center justify-center">
+            <div className="section-content w-full min-h-screen flex items-center justify-center">
                 {/* Background Effects */}
                 <div className="absolute inset-0 grid-bg opacity-50" />
                 <div className="absolute inset-0 scanline pointer-events-none" />
