@@ -119,12 +119,12 @@ export function ExperienceSection() {
         <section
             id="experience"
             ref={sectionRef}
-            className="pinned-section relative h-screen flex items-center justify-center overflow-hidden"
+            className="pinned-section relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-            <div className="section-content w-full h-full flex items-center justify-center overflow-y-auto">
+            <div className="section-content w-full min-h-screen flex items-center justify-center">
                 <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-r from-[#ff0033]/5 to-transparent pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Header */}
                     <div className="exp-header text-center mb-20">
           <span className="inline-block font-rajdhani text-sm tracking-[0.3em] uppercase text-[#ff0033] mb-4">

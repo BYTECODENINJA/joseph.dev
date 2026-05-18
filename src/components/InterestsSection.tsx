@@ -96,12 +96,12 @@ export function InterestsSection() {
         <section
             id="interests"
             ref={sectionRef}
-            className="pinned-section relative h-screen flex items-center justify-center overflow-hidden"
+            className="pinned-section relative min-h-screen flex items-center justify-center overflow-hidden"
         >
-            <div className="section-content w-full h-full flex items-center justify-center overflow-y-auto">
+            <div className="section-content w-full min-h-screen flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff0033]/3 to-transparent pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Header */}
                     <div className="interests-header text-center mb-16">
           <span className="inline-block font-rajdhani text-sm tracking-[0.3em] uppercase text-[#00f0ff] mb-4">

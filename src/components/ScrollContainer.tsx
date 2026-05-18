@@ -8,14 +8,14 @@ interface ScrollContainerProps {
     children: ReactNode;
 }
 
-const SCROLL_PER_SECTION = () => window.innerHeight * 1.5;
-const SCROLL_SCRUB = 2.5;
+const SCROLL_PER_SECTION = () => window.innerHeight * 1.2;
+const SCROLL_SCRUB = 1;
 
 export function ScrollContainer({ children }: ScrollContainerProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        gsap.ticker.lagSmoothing(0);
+        gsap.ticker.lagSmoothing(0.8);
 
         const ctx = gsap.context(() => {
             const sections = gsap.utils.toArray<HTMLElement>('.pinned-section');
